@@ -1,0 +1,123 @@
+.header{
+    position: sticky;
+    top:0;
+    
+    padding-block-start: 0.5rem;
+
+   
+  }
+  /* main-header */
+  .main-header {
+    background-color: var(--bg-color);
+    padding: 10px;
+    color: var(--font-primary);
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 1.5rem;
+  }
+  .header nav{
+    padding-inline: 2rem;
+      padding-block-start: 0.3rem;
+      position: absolute;
+      z-index: 4;
+      background: rgba(255, 255, 255, 0);
+      height: 0;
+      width: 100vw;
+      transition: all 0.3s ease-in-out;
+      overflow: hidden;
+  
+  }
+  .header nav ul li{
+    margin-block:0.3rem ;
+    transition: all 0.3s ease-in-out;
+  }
+  .header nav ul li:hover{
+   
+  
+   
+    padding-inline-start: 0.3rem;
+  
+  }
+  .header nav ul li a{
+    color: var(--font-primary);
+  
+  }
+  /* navbar */
+  .navbar{
+    justify-content: space-between;
+  }
+  
+  /* menu button */
+  
+  /* toggle button */
+  .menu-button{
+    width:2rem;
+    height:2rem;
+  
+  
+  }
+  .menu-bar{
+    width:1.9rem;
+    height:0.3rem;
+    background-color:black;
+    border-radius: 5%;
+    margin: 0.2rem auto;
+  }
+  .menu-open-button{
+    margin-top: 0.3rem;
+  }
+  .menu-open-button .menu-bar:nth-child(1){
+    transform: rotate(45deg);
+    transform-origin: 20%;
+  }
+  .menu-open-button .menu-bar:nth-child(3){
+    transform: rotate(-45deg);
+    transform-origin: 20%;
+  }
+  .menu-open-button .menu-bar:nth-child(2){
+    display: none;
+  }
+  
+  /* open header menu */
+  .header-open nav{
+   
+    height:7.5rem;
+    box-shadow: 2px 2px 2px whitesmoke;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .header{
+      display: flex;
+      position: static;
+      justify-content: space-around;
+      padding-inline: 4rem;
+    }
+    .menu-button{
+      display: none;
+    }
+    .header nav{
+      height: auto;
+      display: flex;
+      position: static;
+      justify-content: flex-end;
+      box-shadow: none;
+    }
+    .header nav ul{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     
+    }
+    .header nav ul li{
+      margin-inline: 0.5rem;
+      
+     
+    }
+    .header nav ul li:hover{
+      padding-inline-start: 0;
+      transform: scale(1.1);
+     
+    }
+    
+  }
+  

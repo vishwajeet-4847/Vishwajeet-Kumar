@@ -1,13 +1,139 @@
-body {
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Poppins', sans-serif; /* Modern, readable font */
+  color: #333333;
+}
+
+button {
+  background-color: #fbc2eb;
+  color: #ffffff;
+  border-radius: 25px; /* Soft, rounded buttons for a gentle feel */
+  padding: 10px 20px;
+  transition: transform 0.3s ease-in-out; /* Floating interaction */
+}
+
+button:hover {
+  transform: translateY(-5px); /* Button rises slightly when hovered */
+}
+
+
+
+/* variables  */
+
+:root {
+  /* Primary and Secondary Colors */
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  
+  /* Neutral Colors */
+  --neutral-color-light: #f5f5f5;
+  --neutral-color-dark: #333333;
+  --neutral-color-muted: #7f8c8d;
+
+  /* Background Colors */
+  --bg-color: #ffffff;
+  --bg-alt-color: #f5f5f5;
+  
+  /* Footer Colors */
+  --footer-bg-color: #34495e;
+  --footer-font-color: #ecf0f1;
+
+  /* Accent Colors */
+  --accent-color-hover: #2980b9;
+  --accent-color-active: #27ae60;
+
+  /* Font colors */
+  --font-primary: #333333;
+  --font-secondary: #7f8c8d;
+}
+
+
+/* global css */
+
+/* fontsizes */
+/* Default styles for mobile */
+h1 { font-size: 28px; }
+h2 { font-size: 22px; }
+p  { font-size: 16px; }
+
+/* Tablets */
+@media (min-width: 577px) {
+  h1 { font-size: 32px; }
+  h2 { font-size: 26px; }
+  p  { font-size: 18px; }
+}
+
+/* Small Laptops */
+@media (min-width: 769px) {
+  h1 { font-size: 36px; }
+  h2 { font-size: 28px; }
+  p  { font-size: 20px; }
+}
+
+/* Larger Laptops & Desktops */
+@media (min-width: 993px) {
+  h1 { font-size: 42px; }
+  h2 { font-size: 32px; }
+  p  { font-size: 22px; }
+}
+
+/* Extra Large Screens */
+@media (min-width: 1201px) {
+  h1 { font-size: 48px; }
+  h2 { font-size: 36px; }
+  p  { font-size: 24px; }
+}
+
+
+/* li */
+li {
+  list-style-type: none;
+
+}
+
+/* a */
+a {
+  text-decoration: none;
+}
+
+
+
+/* home section */
+/* Custom CSS for responsiveness */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Adjust as needed */
+}
+
+.columns {
+  width: 100%;
+  max-width: 1024px; /* Adjust as needed */
+}
+
+.column {
+  flex: 1;
+  padding: 1rem;
+}
+
+.column img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .columns {
+      flex-direction: column;
+  }
+
+  .column {
+      flex: none;
+  }
 }
