@@ -9,25 +9,25 @@ import FooterNameLogo from "./footerNameLogo";
 const socialIcon =[
   {
     icon: "fab fa-facebook-f",
-    url: "https://www.facebook.com/"
+    url: "https://www.facebook.com/profile.php?id=100050871531149"
   },
   {
     icon: "fab fa-instagram",
-    url: "https://www.instagram.com/"
+    url: "https://www.instagram.com/vishu_4_u_2/"
   },
   
   {
     icon: "fab fa-linkedin-in",
-    url: "https://www.linkedin.com/"
+    url: "www.linkedin.com/in/vishwajeet-kumar-01566a283"
   },
   {
     icon: "fab fa-github",
-    url: "https://www.github.com/"
+    url: "https://github.com/vishwajeet-4847"
   },
  
   {
     icon: "fab fa-youtube",
-    url: "https://www.youtube.com/"
+    url: "https://youtube.com/@vishwajeet_kumar?si=FAR7nHyKHyZNELPa"
   },
   
 ];
