@@ -1,12 +1,20 @@
 import React from "react";
+import ContactForm from "./components/utility/ContactForm";
+import Section from "./components/utility/section";
+import SectionTitle from "./components/utility/section-title";
 
 const Contact = ()=>{
     return (
-        <div>
-            <h1>Contact</h1>
-            <p>Email:  contact@example.com</p>
-            <p>Phone: 123-456-7890</p>
-        </div>
+      
+            <div className="contact-container">
+            <Section className="container contact-container">
+                <SectionTitle title="Get in touch with me"/>
+            <ContactForm />
+
+            </Section>
+            </div>
+
+    
     );
 };
 

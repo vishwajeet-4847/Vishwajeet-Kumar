@@ -1,12 +1,15 @@
 import React from "react";
+import Section from "./components/utility/section";
+import AboutInfo from "./about-info";
+import DigitalCreations from "./digital-creation";
 
 
 const About = ()=>{
     return(
-        <div>
-            <h1>About Me</h1>
-            <p>I'm a software engineer, currently working remotely at a startup.</p>
-        </div>
+       <Section className="container">
+        <AboutInfo />
+        <DigitalCreations />
+       </Section>
     );
 };
 

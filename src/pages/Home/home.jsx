@@ -1,20 +1,37 @@
 import React from "react";
 
+import Separator from "../components/utility/separator";
+import ButtonBox from "../components/utility/button-box";
 
-const Home = ()=>{
-    return (
-        <section className="hero-section container">
-        <div className="columns">
-            <div className="column is-half">
-                <button className="hire-resume-btn">Hire Me</button>
-                <button className="lets-talk-btn">Let's Talk</button>
-            </div>
-            <div className="column is-half">
-                <img src="./images/pic-1.png" alt="my-pic" />
-            </div>
-        </div>
-    </section>
-    );
-};
+import PicBox from "../components/utility/pic-box";
+import Section from "../components/utility/section";
+import HeroText from "../components/utility/hero-text";
+import TitleInfo from "./title-info";
+import SectionTitle from "../components/utility/section-title";
+import WorkCard from "../components/utility/work-card";
+
+import Container from "../components/utility/container";
+
+import WorkCards from "../../workcard";
+
+const Home = () => (
+    <>
+        <Section className="hero-section container">
+            <PicBox class="my-pic" img="./images/pic-1.png" alt="Vishwajeet Kumar" />
+            <HeroText />  
+            <Separator />
+            <TitleInfo /> 
+            <ButtonBox />
+        </Section>
+        <Section className="container can-work">
+            <SectionTitle title="can work on"/>
+            <Container class="card-container">
+            {WorkCards.map((workCard, index) => (
+                    <WorkCard key={index} image={workCard.image} title={workCard.title} description={workCard.description} />
+                ))}
+            </Container>
+        </Section>
+    </>
+);
 
 export default Home;

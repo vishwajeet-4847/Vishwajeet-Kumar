@@ -1,5 +1,8 @@
 
-
+.footer{
+    background-color: var(--footer-background-color);
+    color: var(--header-footer-text-color);
+}
 
 /* footer content box */
 .footer-content {
@@ -137,19 +140,38 @@
 
 /* navigation link */
 .footer .container nav ul{
+
     margin-block: 0.5rem;
     justify-content: center;
     display: flex;
     gap: 0.7rem;
+    transition: all 0.4s;
+}
+
+.footer .container nav ul li:hover{
+   transform: scale(1.2);
+}
+
+.footer .container nav ul li a{
+   color: var(--header-footer-text-color);
 }
 
 .footer .social-icons ul{
+    color: var(--header-footer-text-color);
     display: flex;
     gap: 1.5rem;
    
     align-items: center;
     margin-block: 0.8rem;
     font-size: 1.3rem;
+}
+.footer .social-icons ul li{
+    transition: all 0.5s;
+}
+
+.footer .social-icons ul li:hover{
+    color: blue;
+    transform: scale(1.5) rotate(360deg);
 }
 .copyright{
     margin-block: 1rem;
