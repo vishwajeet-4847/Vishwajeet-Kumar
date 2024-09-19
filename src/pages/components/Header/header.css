@@ -3,8 +3,8 @@
     top:0;
     z-index: 999;
     padding-block-start: 0.5rem;
-    background-color: var(--header-background-color);
-
+    background: linear-gradient(to right, var(--header-bg-start), var(--header-bg-end));
+    color: var(--header-footer-text);
    
   }
   /* main-header */
@@ -26,6 +26,7 @@
       width: 100vw;
       transition: all 0.3s ease-in-out;
       overflow: hidden;
+      background: linear-gradient(to right, var(--header-bg-start), var(--header-bg-end));
   
   }
   .header nav ul li{
@@ -40,8 +41,11 @@
   
   }
   .header nav ul li a{
-    color: var(--header-footer-text-color);
+    color: var(--header-footer-link);
   
+  }
+  .header nav ul li a:hover{
+    color: var(--header-footer-hover-link);
   }
   /* navbar */
   .navbar{
@@ -102,6 +106,8 @@
       position: static;
       justify-content: flex-end;
       box-shadow: none;
+      
+      background: transparent;
     }
     .header nav ul{
       display: flex;

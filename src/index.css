@@ -5,8 +5,9 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif; /* Modern, readable font */
-  color: #333333;
+  background-color: var(--body-bg);
+  color: var(--body-text);
+  font-family: Arial, sans-serif;
 }
 
 button {
@@ -26,17 +27,70 @@ button:hover {
 /* variables  */
 
 :root {
-  --background-color: #FFFBF0; /* Light yellow for a warm, inviting feel */
-  --text-color: #333333; /* Dark gray for contrast and readability */
-  --title-color: #FF5722; /* Bright orange for energetic vibes */
-  --card-background-color: #FFFFFF; /* White for a clean and professional look */
-  --card-border-color: #FF9800; /* Vibrant orange for accents */
-  --button-color: #00796B; /* Deep teal for contrast and action elements */
-  --header-background-color: #FF9800;
-  --footer-background-color: #FF5722;
-  --header-footer-text-color: #FFFFFF;
-}
+  --hero-gradient-start: #283048; /* dark slate blue */
+  --hero-gradient-end: #434343;  
+  /* Section Heading Gradient */
+  --heading-gradient-start: #FF7E5F; /* light coral */
+  --heading-gradient-end: #FEB47B;   /* warm orange */
 
+  /* Content Background Gradient */
+  --content-gradient-start: #F3F9A7; /* soft yellow */
+  --content-gradient-end: #CAC531;   /* earthy yellow-green */
+
+  /* Button Colors */
+  --button-bg: #FF6F61;      /* fiery orange-pink */
+  --button-text: #FFFFFF;    /* white */
+  --button-hover-bg: #FF9966;/* soft coral-orange */
+  --button-hover-text: #333333; /* dark grey */
+
+  /* Header and Footer Background Gradients */
+  --header-bg-start: #283048; /* dark slate blue */
+  --header-bg-end: #859398;   /* muted grey-blue */
+
+  --footer-bg-start: #434343; /* charcoal grey */
+  --footer-bg-end: #000000;   /* black */
+
+  /* Header and Footer Text & Links */
+  --header-footer-text: #FFFFFF; /* white */
+  --header-footer-link: #A0C1B8; /* soft seafoam green */
+  --header-footer-link-hover: #FF7F50; /* coral */
+
+  /* Flip (Alternate) Section Heading Gradient */
+  --heading-gradient-flip-start: #009FFF; /* vivid sky blue */
+  --heading-gradient-flip-end: #ec2F4B;   /* warm red */
+
+  /* Flip (Alternate) Content Background Gradient */
+  --content-gradient-flip-start: #F4E2D8; /* peach */
+  --content-gradient-flip-end: #BA5370;   /* dusty pink */
+
+  /* Flip (Alternate) Button Colors */
+  --button-flip-bg: #42E695;      /* mint green */
+  --button-flip-text: #FFFFFF;    /* white */
+  --button-flip-hover-bg: #38A1DB;/* vivid blue */
+  --button-flip-hover-text: #000000; /* black */
+  /* Body Colors */
+  --body-bg: #FAFAFA;    /* light grey */
+  --body-text: #333333;  /* dark grey for readability */
+
+    /* Hero Section Background */
+    --container-bg: linear-gradient(to right, #283048, #434343); /* dark slate-blue to charcoal */
+  
+    /* Card Front */
+    --card-bg: #2C3E50; /* dark navy-blue */
+    --card-hover-bg: #34495E; /* slightly lighter navy-blue */
+    --card-text: #ECF0F1; /* light grey for readability */
+    --card-title: #FF7E5F; /* coral for card titles */
+    
+    /* Card Back */
+    --card-back-bg: #434343; /* charcoal grey */
+    --card-back-text: #FFFFFF; /* white for card back */
+
+    --warm-sunrise-light: #ffcfdf; /* Light pink from the gradient */
+    --warm-sunrise-dark: #b0d4ff;  /* Light blue from the gradient */
+    --accent-purple: #6a3f8c;      /* Purple for contrast */
+    --highlight-orange: #ff5733;   /* Bright orange */
+    --hover-orange: #ff8a33; 
+}
 /* global css */
 
 /* fontsizes */
@@ -95,7 +149,11 @@ img {
 /* button */
 
 
-
+.section{
+  
+    background: var(--container-bg);
+    padding: 1rem;
+}
 .container{
  
   width: 90vw;
@@ -106,12 +164,18 @@ img {
 .section-title{
   text-transform: capitalize;
     text-align: center;
-    border-bottom: 2px solid var(--button-color);
+    padding-block: 0.4rem;
     color: var(--title-color);
+    background: linear-gradient(to right, var(--heading-gradient-start), var(--heading-gradient-end));
 }
 /* home section */
 /* Custom CSS for responsiveness */
-
+.hero{
+  background: linear-gradient(to right, var(--hero-gradient-start), var(--hero-gradient-end));
+  padding: 20px;
+  text-align: center;
+  color: var(--body-text);
+}
 .hero-section{
   display: flex;
 
@@ -123,12 +187,28 @@ img {
   justify-content: center;
   align-items: center;
   align-content: center;
+ 
 
+
+}
+.hero-section .hero-title {
+ 
+  font-weight: bold;
+  background: linear-gradient(to right, var(--heading-gradient-start), var(--heading-gradient-end));
+  -webkit-background-clip: text;
+  color: transparent; /* Text filled with gradient */
+  margin: 20px 0;
 }
 .my-pic{
   width:15rem;
   overflow: hidden;
   border-radius: 50%;
+  transition: all 0.2s;
+  
+}
+.my-pic:hover{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.03);
 }
 
 .separator{
@@ -137,18 +217,21 @@ img {
   justify-content: center;
   width: 100%;
   
+ 
+  
 }
 .separator-line{
 
   width: 40%;
   height: 0.5rem;
-  background-color:var(--title-color);
+  background-color: var(--button-bg);
   border-radius: 16%;
   max-width: 7rem;
 }
 .separator-text{
   font-size: 1.5rem;
   margin-inline: 0.5rem;
+  color: var(--button-bg);
 }
 
 /* buttons */
@@ -167,8 +250,8 @@ img {
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
-  color: var(--text-color);
-  background-color: var(--button-color);
+  background-color: var(--button-bg);
+  color: var(--button-text);
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -177,7 +260,8 @@ img {
 }
 
 .button:hover {
-  background-color: #555;
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 .button::before {
@@ -204,6 +288,7 @@ img {
   gap: 1rem;
   padding-block: 2rem;
   place-items: center;
+  /* background: linear-gradient(to right, var(--content-gradient-start), var(--content-gradient-end)); */
 }
 /* Work card  */
 .work-card {
@@ -219,6 +304,14 @@ img {
   transition: transform 1.5s ease-in-out;
   border-radius: 1rem;
   overflow: hidden;
+  background-color: var(--card-bg); /* Dark navy-blue background */
+  
+  
+}
+
+.work-card:hover {
+  transform: translateY(-5px);
+  background-color: var(--card-hover-bg);
 }
 
 .card-front,
@@ -240,11 +333,26 @@ img {
 }
 
 .card-back {
-  background-color: #f5f5f5;
+  background-color: var(--card-back-bg);
   display: flex;
   justify-content: center;
   align-items: center;
   transform: rotateY(180deg);
+}
+.card-back a {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: var(--button-bg); /* Button background */
+  color: var(--button-text); /* Button text */
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card-back a:hover {
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
 }
 
 .work-card.flipped .card-front {
@@ -263,12 +371,14 @@ img {
 .card-description h3 {
   margin-top: 0;
   margin-bottom: 8px;
+  color: var(--card-title); 
 }
 
 .card-description p {
   margin-top: 0;
   margin-bottom: 16px;
   text-align: justify;
+  color: var(--card-text);
 }
 .work-card img{
   width:40%;
@@ -276,6 +386,7 @@ img {
   height: 20%;
   display: block;
   object-fit: contain;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* project card  */
@@ -290,6 +401,7 @@ img {
   object-fit: cover;
     width: 100%;
     height: 100%;
+  
 }
 
 .project-card .front,
@@ -308,10 +420,13 @@ img {
 
 .project-card .back {
   transform: rotateY(180deg);
-  background-color: #2980b9;
+  background-color: var(--accent-purple);
   color: white;
   padding: 20px;
   overflow: auto;
+}
+.back p{
+  color: var(--warm-sunrise-light);
 }
 
 .project-card:hover .front {
@@ -326,14 +441,58 @@ img {
 /* CSS styles for the contact form */
 
 .contact-container{
-  background: linear-gradient(to right, #00c6ff, #0072ff);
+  background: linear-gradient(to right, var(--warm-sunrise-light), var(--warm-sunrise-dark)); /* Warm Sunrise gradient */
+  color: var(--accent-purple);
+
   position: relative;
   height: 80vh;
 }
-.floating-contact {
+.contact-container .section-title{
+  background:transparent;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+    background-color: rgba(255, 255, 255, 0.7); /* Light transparent white */
+    border: 2px solid var(--accent-purple); /* Purple border */
+    color: #333;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form textarea:focus {
+    border-color: var(--highlight-orange); /* Bright orange for focus */
+    box-shadow: 0 0 5px rgba(255, 87, 51, 0.5); /* Slight shadow on focus */
+}
+
+form input[type="submit"] {
+    background-color: var(--highlight-orange); /* Orange for submit button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: var(--hover-orange); /* Lighter orange on hover */
+}
+
+ .floating-contact {
   position: absolute;
   max-width: 700px;
-  top: 60%;
+  top: 53%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
@@ -342,14 +501,14 @@ img {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   /* animation: floating 5s infinite; */
-  overflow: hidden; /* Add this line */
-}
+  /* overflow: hidden; Add this line */
+ } 
 
-@keyframes floating {
+/* @keyframes floating {
   0% { transform: translate(-50%, -50%) rotate(0); }
   50% { transform: translate(-50%, -50%) rotate(5deg); }
   100% { transform: translate(-50%, -50%) rotate(0); }
-}
+} */
 
 .floating-contact::before {
   content: '';
@@ -363,31 +522,18 @@ img {
   animation: wave 10s infinite;
 }
 
-@keyframes wave {
+/* @keyframes wave {
   0% { background-position: 0; }
   100% { background-position: 100%; }
-}
+} */
 .floating-contact form {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.floating-contact input,
-.floating-contact textarea {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
 
-.floating-contact input[type="submit"] {
-  background-color: var(--button-color);
-  color: var(--text-color);
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
+
 
 .floating-contact p {
   color: red;
@@ -422,11 +568,7 @@ img {
 }
 
 /* about */
-.about{
-  margin-top:3rem;
-  padding: 2rem;
 
-}
 .about-info{
   display: flex;
   flex-direction: column;
@@ -435,33 +577,50 @@ img {
   gap: 1rem;
   margin-bottom: 2rem;
 }
-.about h3{
+.about-info-text {
+  color: var(--body-text); /* Main body text color */
+
+}
+.about-info-text h3 {
   text-transform: capitalize;
   font-size:1.5rem;
-  color: var(--text-color);
+  
+  color: var(--button-bg);
   text-align: center;
   padding: 1rem 0;
+  
+  color: var(--button-bg); /* Fiery orange-pink for titles */
+ 
 }
 .about-info-text p{
   text-align: justify;
+  color: var(--card-text);
   
 }
 .about-img img{
   border-radius: 50%;
   width:10rem;
   margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 }
 .creation-card{
   margin:1rem auto;
   padding: 1rem;
-  box-shadow: 2px 2px 2px 1px var(--background-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, background-color 0.3s;
   max-width: 331px;
+  background-color: var(--card-bg);
   
+}
+.creation-card:hover {
+  transform: translateY(-5px);
+  background-color: var(--card-hover-bg); /* Slightly lighter on hover */
 }
 .creation-card h3{
   text-align: justify;
   font-size: 0.8rem;
+  color: var(--card-title); 
 }
 iframe{
   width:100%;
@@ -480,7 +639,10 @@ iframe{
 
 /* span title */
 .title{
-  font-size: 0.9rem;
-  margin-inline: 0.6rem;
-  color: var(--text-color);
+  background: linear-gradient(to right, var(--heading-gradient-start), var(--heading-gradient-end));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 20px;
+  margin: 0 10px;
+  display: inline-block;
 }

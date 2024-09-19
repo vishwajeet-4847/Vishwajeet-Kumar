@@ -7,7 +7,7 @@ const Projects = ()=>{
     
     return(
         
-        <Section className="container ">
+        <Section className="section">
             <SectionTitle title="View My Work"/>
 <div className="card-container">
       {projects.map((project) => (

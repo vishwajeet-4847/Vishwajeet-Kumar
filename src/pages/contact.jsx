@@ -7,9 +7,12 @@ const Contact = ()=>{
     return (
       
             <div className="contact-container">
-            <Section className="container contact-container">
+            <Section className=" contact-container">
+               
+                <div className="container">
                 <SectionTitle title="Get in touch with me"/>
             <ContactForm />
+            </div>
 
             </Section>
             </div>

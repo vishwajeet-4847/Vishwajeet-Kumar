@@ -6,9 +6,16 @@ import DigitalCreations from "./digital-creation";
 
 const About = ()=>{
     return(
-       <Section className="container">
-        <AboutInfo />
+       <Section className=" section">
+        <div className="container">        
+            <AboutInfo />
+            </div>
+      
+      
+        <div className>
         <DigitalCreations />
+        </div>
+
        </Section>
     );
 };

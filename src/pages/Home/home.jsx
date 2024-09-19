@@ -16,20 +16,24 @@ import WorkCards from "../../workcard";
 
 const Home = () => (
     <>
-        <Section className="hero-section container">
+        <Section className="hero">
+            <div className="hero-section container">
             <PicBox class="my-pic" img="./images/pic-1.png" alt="Vishwajeet Kumar" />
             <HeroText />  
             <Separator />
             <TitleInfo /> 
             <ButtonBox />
+            </div>
         </Section>
-        <Section className="container can-work">
+        <Section className="section">
+            <div className="continer can-work">
             <SectionTitle title="can work on"/>
             <Container class="card-container">
             {WorkCards.map((workCard, index) => (
                     <WorkCard key={index} image={workCard.image} title={workCard.title} description={workCard.description} />
                 ))}
             </Container>
+            </div>
         </Section>
     </>
 );
