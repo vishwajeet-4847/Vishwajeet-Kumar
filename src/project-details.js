@@ -33,7 +33,7 @@ const projects = [
         title: "Akash Portfolio",
         description: "It is a website showcasing a portfolio of various projects. The project is hosted on Render and can be accessed by visiting the provided link.",
         image: "./images/akash.png",
-        link: "https://akash-portfolio-6aju.onrender.com/"
+        link: "https://akash-portfolio-nu.vercel.app/"
     },
     {
         title: "weather",
