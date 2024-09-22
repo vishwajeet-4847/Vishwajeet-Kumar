@@ -1,47 +1,40 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-// import { configDotenv } from 'dotenv';
 
 const ContactForm = () => {
-
-  
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isValid, isSubmitting },
-  } = useForm();
+  } = useForm({ mode: 'onChange' }); // Enable real-time validation
+  
   const [thankYouMessage, setThankYouMessage] = useState('');
 
   const onSubmit = (data) => {
     axios
       .post(process.env.REACT_APP_BACKEND_URL, data)
       .then((response) => {
-        // Handle successful form submission
         console.log('Form submitted successfully:', response.data);
-        // Display thank you message with the name
-        setThankYouMessage(`Thank you ${data.name}!  for reaching me out!`);
-        // Clear form after successful submission
+        setThankYouMessage(`Thank you ${data.name}! for reaching out!`);
         reset();
       })
       .catch((error) => {
-        // Handle form submission error
         console.error('Error submitting form:', error);
       });
   };
 
   return (
     <div className="floating-contact">
-      {thankYouMessage && <div style={{color:"green", fontWeight:"bold",textAlign:"center"}}>{thankYouMessage}</div>}
+      {thankYouMessage && <div style={{ color: 'green', fontWeight: 'bold', textAlign: 'center' }}>{thankYouMessage}</div>}
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
           placeholder="Name"
           {...register('name', { required: 'Name is required' })}
         />
-        {errors.name && <p >{errors.name.message}</p>}
-
+        {errors.name && <p>{errors.name.message}</p>}
 
         <input
           type="email"
@@ -77,12 +70,11 @@ const ContactForm = () => {
         {errors.message && <p>{errors.message.message}</p>}
 
         <input
-  type="submit"
-  value="Submit"
-  disabled={!formState.isValid || formState.isSubmitting}
-/>
+          type="submit"
+          value="Submit"
+          disabled={!isValid || isSubmitting} // Use isValid and isSubmitting here
+        />
       </form>
-      
     </div>
   );
 };
