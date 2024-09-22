@@ -42,6 +42,7 @@ const ContactForm = () => {
         />
         {errors.name && <p >{errors.name.message}</p>}
 
+
         <input
           type="email"
           placeholder="Email"
