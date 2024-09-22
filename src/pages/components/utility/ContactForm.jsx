@@ -1,86 +1,80 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 const ContactForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const [thankYouMessage, setThankYouMessage] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Perform form validation
-    if (!name || !email || !phone || !message) {
-      setErrorMessage('Please fill in all fields.');
-      return;
-    }
-
-    if (!validateEmail(email)) {
-      setErrorMessage('Please enter a valid email address.');
-      return;
-    }
-
-    if (!validatePhone(phone)) {
-      setErrorMessage('Please enter a valid phone number (10 digits).');
-      return;
-    }
-
-    // If validation passes, clear the error message
-    setErrorMessage('');
-
-    // Perform form submission logic here
-    // ...
-  };
-
-  const validateEmail = (email) => {
-    // Email validation logic
-    // ...
-  };
-
-  const validatePhone = (phone) => {
-    // Phone number validation logic
-    // ...
+  const onSubmit = (data) => {
+    axios
+      .post('http://localhost:5000/submit-form', data)
+      .then((response) => {
+        // Handle successful form submission
+        console.log('Form submitted successfully:', response.data);
+        // Display thank you message with the name
+        setThankYouMessage(`Thank you ${data.name} for reaching me out!`);
+        // Clear form after successful submission
+        reset();
+      })
+      .catch((error) => {
+        // Handle form submission error
+        console.error('Error submitting form:', error);
+      });
   };
 
   return (
     <div className="floating-contact">
-      <form onSubmit={handleSubmit}>
+      {thankYouMessage && <div style={{color:"green", fontWeight:"bold",textAlign:"center"}}>{thankYouMessage}</div>}
+      <form onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
-          id="name"
           placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
+          {...register('name', { required: 'Name is required' })}
         />
+        {errors.name && <p>{errors.name.message}</p>}
+
         <input
           type="email"
-          id="email"
           placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
+          {...register('email', {
+            required: 'Email is required',
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: 'Please enter a valid email address',
+            },
+          })}
         />
+        {errors.email && <p>{errors.email.message}</p>}
+
         <input
           type="tel"
-          id="phone"
           placeholder="Phone"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          required
+          {...register('phone', {
+            required: 'Phone is required',
+            pattern: {
+              value: /^\d{10}$/,
+              message: 'Please enter a valid phone number (10 digits)',
+            },
+          })}
         />
+        {errors.phone && <p>{errors.phone.message}</p>}
+
         <textarea
-          id="message"
           placeholder="Message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          {...register('message', { required: 'Message is required' })}
           style={{ maxHeight: '200px', overflow: 'auto' }}
-          required
         />
-        {errorMessage && <p>{errorMessage}</p>}
+        {errors.message && <p>{errors.message.message}</p>}
+
         <input type="submit" value="Submit" />
       </form>
+      
     </div>
   );
 };
