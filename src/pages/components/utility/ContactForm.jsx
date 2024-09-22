@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+// import { configDotenv } from 'dotenv';
 
 const ContactForm = () => {
+
+  
   const {
     register,
     handleSubmit,
@@ -13,12 +16,12 @@ const ContactForm = () => {
 
   const onSubmit = (data) => {
     axios
-      .post('http://localhost:5000/submit-form', data)
+      .post(process.env.REACT_APP_BACKEND_URL, data)
       .then((response) => {
         // Handle successful form submission
         console.log('Form submitted successfully:', response.data);
         // Display thank you message with the name
-        setThankYouMessage(`Thank you ${data.name} for reaching me out!`);
+        setThankYouMessage(`Thank you ${data.name}!  for reaching me out!`);
         // Clear form after successful submission
         reset();
       })

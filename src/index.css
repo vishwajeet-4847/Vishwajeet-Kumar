@@ -445,7 +445,7 @@ img {
   color: var(--accent-purple);
 
   position: relative;
-  height: 80vh;
+  height: 90vh;
 }
 .contact-container .section-title{
   background:transparent;
@@ -529,7 +529,7 @@ form input[type="submit"]:hover {
 .floating-contact form {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 
@@ -537,7 +537,7 @@ form input[type="submit"]:hover {
 
 .floating-contact p {
   color: red;
-  margin-top: 5px;
+
   font-size: 12px;
 }
 
