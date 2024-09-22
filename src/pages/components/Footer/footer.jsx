@@ -4,6 +4,7 @@ import Navbar from "../Header/navbar";
 import SocialIcon from "./scoialIcons"
 import SubscribeForm from "./subscribeForm";
 import FooterNameLogo from "./footerNameLogo";
+import ChatWithMe from "./chatWithMe";
 
 
 const socialIcon =[
@@ -57,6 +58,9 @@ const Footer = ()=>{
             </ul>
           </div>
            {/* social icons end here */}
+
+           {/* whatsapp icon to chat */}
+           <ChatWithMe/>
            {/* copyright text starts here */}
                   <div className="copyright">
                     <p>© {currentYear} Vishwajeet. All rights reserved.</p>

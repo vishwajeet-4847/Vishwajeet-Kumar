@@ -646,3 +646,28 @@ iframe{
   margin: 0 10px;
   display: inline-block;
 }
+
+/* chat with me */
+.whatsapp-chat{
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+  position: fixed;
+  bottom: 2rem;
+  right: 1rem;
+}
+
+.whatsapp-chat a{
+  color: rgb(60, 84, 24);
+}
+.whatsapp-icon{
+  font-size: 3rem;
+  animation: small-size 1s linear infinite alternate-reverse;
+}
+/* small and big size change smooth animation with slow peace */
+
+
+@keyframes small-size{
+  0% {font-size: 2.5rem;}
+  100% {font-size: 3.2rem;}
+}
