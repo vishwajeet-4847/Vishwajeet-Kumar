@@ -399,9 +399,11 @@ img {
   perspective: 1000px;
 }
 .project-card .front img{
+  height: 100%;
   object-fit: cover;
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  border-radius: 0.7rem;
+  box-shadow: 1px 1px 1px #53530fb0;
   
 }
 
