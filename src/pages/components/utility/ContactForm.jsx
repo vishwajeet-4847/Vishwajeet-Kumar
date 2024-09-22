@@ -40,7 +40,7 @@ const ContactForm = () => {
           placeholder="Name"
           {...register('name', { required: 'Name is required' })}
         />
-        {errors.name && <p>{errors.name.message}</p>}
+        {errors.name && <p >{errors.name.message}</p>}
 
         <input
           type="email"
