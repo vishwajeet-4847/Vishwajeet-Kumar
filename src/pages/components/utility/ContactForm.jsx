@@ -10,7 +10,7 @@ const ContactForm = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isValid, isSubmitting },
   } = useForm();
   const [thankYouMessage, setThankYouMessage] = useState('');
 
