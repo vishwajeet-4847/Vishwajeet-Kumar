@@ -76,7 +76,11 @@ const ContactForm = () => {
         />
         {errors.message && <p>{errors.message.message}</p>}
 
-        <input type="submit" value="Submit" />
+        <input
+  type="submit"
+  value="Submit"
+  disabled={!formState.isValid || formState.isSubmitting}
+/>
       </form>
       
     </div>
