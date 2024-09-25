@@ -488,6 +488,10 @@ form input[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+form input:disabled{
+  background-color: red; /* Disabled button color */
+  cursor: not-allowed; /* Disable cursor */
+}
 
 form input[type="submit"]:hover {
   background-color: var(--hover-orange); /* Lighter orange on hover */

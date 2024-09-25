@@ -7,23 +7,26 @@ const ContactForm = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isValid, isSubmitting },
+    formState: { errors, isValid },
   } = useForm({ mode: 'onChange' }); // Enable real-time validation
   
   const [thankYouMessage, setThankYouMessage] = useState('');
+  const [isSubmitting,setIsSubmitting] = useState(false);
 
-  const onSubmit = (data) => {
-    axios
-      .post(process.env.REACT_APP_BACKEND_URL, data)
-      .then((response) => {
-        console.log('Form submitted successfully:', response.data);
-        setThankYouMessage(`Thank you ${data.name}! for reaching out!`);
-        reset();
-      })
-      .catch((error) => {
-        console.error('Error submitting form:', error);
-      });
+  const onSubmit = async (data) => {
+    setIsSubmitting(true); // Disable submit button
+    try {
+      const response = await axios.post(process.env.REACT_APP_BACKEND_URL, data);
+      console.log('Form submitted successfully:', response.data);
+      setThankYouMessage(`Thank you ${data.name}! for reaching out!`);
+      reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false); // Re-enable submit button
+    }
   };
+
 
   return (
     <div className="floating-contact">
@@ -72,7 +75,7 @@ const ContactForm = () => {
         <input
           type="submit"
           value="Submit"
-          disabled={!isValid || isSubmitting} // Use isValid and isSubmitting here
+          disabled={ isSubmitting } // Use isValid and isSubmitting here
         />
       </form>
     </div>
